@@ -110,4 +110,5 @@ jobs:
         id: ghr
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v${{ env.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
