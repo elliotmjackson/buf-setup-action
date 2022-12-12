@@ -6,6 +6,13 @@ on:
         type: string
         description: The version you intend to release (eg x.y.z)
         required: true
+  pull_request:
+    types: [ closed ]
+  push:
+    branches:
+      - 'release/**'
+    tags:
+      - v*
 
 env:
   VERSION: ${{ github.event.inputs.version }}
