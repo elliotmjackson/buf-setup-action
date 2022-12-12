@@ -21,6 +21,7 @@ env:
 jobs:
   prepare:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version != '' }}
     steps:
 #      - name: Generate token
 #        id: generate_token
@@ -83,7 +84,7 @@ jobs:
           git push origin ${{env.VERSION}}
   release:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'tag' }}
+    if: ${{ github.event_name == 'tags' }}
     steps:
 #      - name: Generate token
 #        id: generate_token
